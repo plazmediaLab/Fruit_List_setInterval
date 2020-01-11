@@ -2,7 +2,7 @@
   <div>
     <hr>
     <ul class="list-group">
-      <li v-for="(item, index) of listaOrdenada" :key="item.id"
+      <li v-for="(item, index) of frutas" :key="item.id"
       class="list-item jc-spaceB">
         <div>
           <button @click="aumentar(index)" class="btn-s btn-l-acept mr-1"><i class="a-plus"></i></button>
@@ -26,9 +26,6 @@
     name: 'Lista',
     computed:{
       ...mapState(['frutas']),
-      listaOrdenada(state){
-        return state.frutas.sort( (a , b) => b.cantidad - a.cantidad );
-      }
     },
     methods: {
       ...mapMutations(['aumentar', 'restar'])

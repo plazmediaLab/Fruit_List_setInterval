@@ -12,14 +12,21 @@ export default new Vuex.Store({
       {nombre: "Uva", cantidad: 0},
       {nombre: "Piña", cantidad: 0}
     ],
-    nuevaFruta: ''
+    ordenarLista(){
+      setTimeout(()=>{
+        return this.frutas.sort( (a , b) => b.cantidad - a.cantidad );
+      }, 5000)
+      console.log(this.timeoutID)
+    },
   },
   mutations: {
     aumentar(state, index){
       state.frutas[index].cantidad ++;
+      state.ordenarLista();
     },
     restar(state, index){
       state.frutas[index].cantidad --;
+      state.ordenarLista();
     },
     reiniciar(state){
       // for (const item of state.frutas) {
@@ -31,7 +38,7 @@ export default new Vuex.Store({
     },
     agregarFruta(state){
       state.frutas.push({nombre: state.nuevaFruta, cantidad: 0})
-      console.log('Connect')
+      // console.log('Connect')
     }
   },
   actions: {
