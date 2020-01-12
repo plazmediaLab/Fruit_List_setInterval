@@ -1,3 +1,5 @@
+let s, cuenta;
+
 import Vue from 'vue'
 import Vuex from 'vuex'
 
@@ -13,10 +15,16 @@ export default new Vuex.Store({
       {nombre: "Piña", cantidad: 0}
     ],
     ordenarLista(){
-      setTimeout(()=>{
-        return this.frutas.sort( (a , b) => b.cantidad - a.cantidad );
-      }, 5000)
-      console.log(this.timeoutID)
+      s = 0;
+      clearInterval(cuenta)
+      cuenta = setInterval(()=>{
+        s++;
+        // console.log(s)
+        if (s === 5) {
+          clearInterval(cuenta)
+          return this.frutas.sort( (a , b) => b.cantidad - a.cantidad );
+        }
+      }, 1000);
     },
   },
   mutations: {
@@ -38,7 +46,6 @@ export default new Vuex.Store({
     },
     agregarFruta(state){
       state.frutas.push({nombre: state.nuevaFruta, cantidad: 0})
-      // console.log('Connect')
     }
   },
   actions: {
