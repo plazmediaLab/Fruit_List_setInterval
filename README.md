@@ -1,5 +1,9 @@
 # proyecto-1
 
+## Lista de frutas | reordenación automatica en cuanto las cantidades de cada item.
+
+Se aplico in `setInterval` para establecer una actualización a los 5 segundos de haber modificado la cantidad del item.
+
 ## Project setup
 ```
 npm install
